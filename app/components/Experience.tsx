@@ -10,27 +10,25 @@ const Experience = () => {
       company: 'ER Group Technology Sdn Bhd, Johor',
       period: 'June 2025 - August 2025',
       description: [
-        'Contributed to frontend development and UI enhancements of a corporate web portal using Angular framework',
-        'Designed and implemented responsive user interfaces, ensuring mobile compatibility and improved user experience',
-        'Collaborated with design team using Figma to translate mockups into functional UI components',
-        'Developed interactive features such as registration workflows, navigation menus, and real-time validation logic',
-        'Assisted in integrating frontend features with backend APIs in a modular and maintainable manner',
-        'Participated in team meetings and task planning sessions to align development with client requirements',
-        'Explored cross-platform social media sharing integration for dynamic content'
+        'Built responsive UI components in Angular, improving mobile accessibility for >1,000 users',
+        'Developed interactive features including registration workflows, validation logic, and navigation menus',
+        'Integrated frontend with backend APIs to ensure modular and maintainable architecture',
+        'Collaborated with design team using Figma, translating mockups into functional code',
+        'Participated in Agile sprints, aligning tasks with client requirements'
       ],
-      technologies: ['Angular', 'Figma', 'REST APIs', 'Git']
+      technologies: ['Angular', 'Figma', 'REST APIs', 'Git', 'Agile']
     },
     {
       title: 'Robotics Trainer',
       company: 'U1 Robotics Centre, Johor',
       period: 'June 2023 - Present',
       description: [
-        'Proficient in guiding students through the process of designing, building, and programming robots using LEGO Mindstorms',
-        'Committed to fostering a love for Science, Technology, Engineering, and Mathematics (STEM) through engaging workshops',
-        'Created an environment that encourages creativity, critical thinking, and problem-solving skills',
-        'Provided age-appropriate challenges to cater to diverse learning needs'
+        'Guide students through designing, building, and programming robots using LEGO Mindstorms and other robotics platforms',
+        'Foster love for Science, Technology, Engineering, and Mathematics (STEM) through engaging workshops',
+        'Create environment that encourages creativity, critical thinking, and problem-solving skills',
+        'Provide age-appropriate challenges to cater to diverse learning needs'
       ],
-      technologies: ['LEGO Mindstorms', 'STEM Education', 'Robotics Programming']
+      technologies: ['LEGO Mindstorms', 'STEM Education', 'Robotics Programming', 'Teaching']
     },
     {
       title: 'Marketing Leader',
@@ -43,6 +41,18 @@ const Experience = () => {
         'Negotiated property sales and followed up on business leads'
       ],
       technologies: ['Sales', 'Marketing', 'Property Management', 'Customer Service']
+    },
+    {
+      title: 'Sales Executive',
+      company: 'Melium Group Sdn. Bhd. (Aigner), Johor Premium Outlets',
+      period: 'February 2018 - February 2019',
+      description: [
+        'Managed stock systems and product display, gaining experience with data organization and system optimization',
+        'Resolved customer inquiries and complaints, developing strong problem-solving and communication skills',
+        'Streamlined cashiering operations, demonstrating ability to identify and implement efficiency improvements',
+        'Assisted customers and resolved inquiries, building essential customer service skills for software development'
+      ],
+      technologies: ['Customer Service', 'Inventory Management', 'Problem Solving', 'Communication']
     }
   ]
 

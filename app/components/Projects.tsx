@@ -59,49 +59,55 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
             >
               <div className="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
                 <div className="text-white text-center">
-                  <div className="text-4xl mb-2">📱</div>
+                  <div className="text-4xl mb-2">
+                    {index === 0 && "🏠"} {/* AI Property System */}
+                    {index === 1 && "📊"} {/* Data Analysis */}
+                    {index === 2 && "🎮"} {/* Game */}
+                  </div>
                   <p className="text-lg font-medium">{project.title}</p>
                 </div>
               </div>
               
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+                <p className="text-gray-600 mb-4 flex-grow">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="bg-primary-100 text-primary-800 px-2 py-1 rounded text-sm font-medium"
+                <div className="mt-auto">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="bg-primary-100 text-primary-800 px-2 py-1 rounded text-sm font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex gap-3">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex gap-3">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
-                  >
-                    <Github size={20} />
-                    Code
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
-                  >
-                    <ExternalLink size={20} />
-                    Live Demo
-                  </a>
+                      <Github size={20} />
+                      Code
+                    </a>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                    >
+                      <ExternalLink size={20} />
+                      Live Demo
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>
