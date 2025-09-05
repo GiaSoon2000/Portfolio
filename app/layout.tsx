@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     description: 'Software Engineering student and aspiring developer.',
     type: 'website',
   },
+  icons: {
+    icon: '/peace_icon.png',
+  },
 }
 
 export default function RootLayout({
