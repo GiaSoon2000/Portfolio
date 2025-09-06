@@ -30,7 +30,7 @@ const Publications = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
           <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             Research <span className="gradient-text">Publications</span>
@@ -124,7 +124,7 @@ const Publications = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-20 text-center"
+          className="mt-12 text-center"
         >
           <div className="card-modern p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Research Impact</h3>

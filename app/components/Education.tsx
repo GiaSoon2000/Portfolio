@@ -35,7 +35,7 @@ const Education = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6">
             <span className="gradient-text">Education</span> & Learning
@@ -128,7 +128,7 @@ const Education = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-20 text-center"
+          className="mt-12 text-center"
         >
           <div className="card-modern p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Academic Focus</h3>

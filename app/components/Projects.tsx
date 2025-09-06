@@ -49,7 +49,7 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
           <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             Featured <span className="gradient-text">Projects</span>
@@ -59,7 +59,7 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 items-stretch">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -67,7 +67,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="card-modern overflow-hidden group hover:scale-105"
+              className="card-modern overflow-hidden group hover:scale-105 flex flex-col"
             >
               <div className="relative h-56 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
@@ -98,7 +98,7 @@ const Projects = () => {
                 </h3>
                 <p className="text-gray-600 mb-6 flex-grow leading-relaxed">{project.description}</p>
                 
-                <div className="mt-auto space-y-6">
+                <div className="space-y-6">
                   <div className="flex flex-wrap gap-3">
                     {project.technologies.map((tech, techIndex) => (
                       <motion.span
@@ -131,7 +131,7 @@ const Projects = () => {
                       className="flex items-center gap-3 px-6 py-3 bg-primary-100 hover:bg-primary-200 text-primary-700 hover:text-primary-800 transition-all duration-300 rounded-2xl font-medium hover:scale-105 hover:shadow-md"
                     >
                       <ExternalLink size={20} />
-                      Live Demo
+                      {index === 1 ? 'Demo' : 'Live Demo'}
                     </a>
                   </div>
                 </div>

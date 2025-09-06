@@ -65,7 +65,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
           <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             Get In <span className="gradient-text">Touch</span>

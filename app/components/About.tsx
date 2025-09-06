@@ -82,7 +82,7 @@ const PhotoCarousel = () => {
 
 const About = () => {
   return (
-    <section id="about" className="section-padding min-h-screen flex items-center relative overflow-hidden">
+    <section id="about" className="section-padding pt-20 sm:pt-24 lg:pt-32 min-h-screen flex items-center relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-primary-400/20 to-primary-600/20 rounded-full blur-3xl float-animation"></div>
