@@ -37,10 +37,10 @@ const Education = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6">
             <span className="gradient-text">Education</span> & Learning
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             My academic journey in Software Engineering, where I've combined theoretical knowledge 
             with practical applications to create innovative solutions and achieve recognition in competitions.
           </p>
@@ -54,34 +54,34 @@ const Education = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="card-modern p-8 group hover:scale-[1.02]"
+              className="card-modern p-4 sm:p-6 lg:p-8 group hover:scale-[1.02]"
             >
-              <div className="flex items-start gap-6 mb-8">
+              <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-8">
                 <motion.div 
-                  className="bg-gradient-to-r from-primary-100 to-primary-200 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300"
+                  className="bg-gradient-to-r from-primary-100 to-primary-200 p-3 sm:p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
                   whileHover={{ rotate: 5 }}
                 >
-                  <GraduationCap className="text-primary-600" size={40} />
+                  <GraduationCap className="text-primary-600" size={32} />
                 </motion.div>
-                <div className="flex-1">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors duration-300">
+                <div className="flex-1 w-full">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors duration-300">
                     {edu.degree}
                   </h3>
-                  <p className="text-xl text-primary-600 font-semibold mb-4">{edu.institution}</p>
-                  <div className="flex items-center gap-6 text-gray-600">
+                  <p className="text-lg sm:text-xl text-primary-600 font-semibold mb-4">{edu.institution}</p>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 text-gray-600">
                     <motion.div 
-                      className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-2xl"
+                      className="flex items-center gap-2 bg-gray-100 px-3 sm:px-4 py-2 rounded-2xl"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <Calendar size={18} />
-                      <span className="font-medium">{edu.period}</span>
+                      <Calendar size={16} />
+                      <span className="font-medium text-sm sm:text-base">{edu.period}</span>
                     </motion.div>
                     <motion.div 
-                      className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-2xl"
+                      className="flex items-center gap-2 bg-gray-100 px-3 sm:px-4 py-2 rounded-2xl"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <MapPin size={18} />
-                      <span className="font-medium">{edu.location}</span>
+                      <MapPin size={16} />
+                      <span className="font-medium text-sm sm:text-base">{edu.location}</span>
                     </motion.div>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ const Education = () => {
                   <div className="w-3 h-3 bg-gradient-to-r from-primary-500 to-primary-700 rounded-full"></div>
                   Key Achievements
                 </h4>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                   {edu.achievements.map((achievement, idx) => (
                     <motion.div
                       key={idx}
@@ -113,7 +113,7 @@ const Education = () => {
                       className="flex items-start group/achievement"
                     >
                       <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-r from-primary-500 to-primary-700 rounded-full mt-2 mr-3 group-hover/achievement:scale-125 transition-transform duration-300"></div>
-                      <span className="text-gray-700 leading-relaxed">{achievement}</span>
+                      <span className="text-sm sm:text-base text-gray-700 leading-relaxed">{achievement}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -130,9 +130,9 @@ const Education = () => {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="card-modern p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Academic Focus</h3>
-            <p className="text-lg text-gray-600 leading-relaxed">
+          <div className="card-modern p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Academic Focus</h3>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
               My studies focus on modern software development practices, AI integration, and user-centered design. 
               Through hands-on projects and competitions, I've developed expertise in full-stack development, 
               machine learning applications, and creating solutions that address real-world problems.
