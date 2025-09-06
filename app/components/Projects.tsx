@@ -36,18 +36,26 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="section-padding bg-white">
+    <section id="projects" className="section-padding bg-gradient-to-br from-white via-gray-50 to-gray-100 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl float-animation"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl float-animation" style={{animationDelay: '4s'}}></div>
+      </div>
+
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Here are some of the projects I've worked on during my studies, including award-winning AI-powered applications and academic projects.
+          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            Featured <span className="gradient-text">Projects</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Here are some of the projects I've worked on during my studies, including award-winning AI-powered applications and academic projects that showcase my technical skills and creativity.
           </p>
         </motion.div>
 
@@ -55,45 +63,63 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
+              className="card-modern overflow-hidden group hover:scale-105"
             >
-              <div className="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">
+              <div className="relative h-56 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+                <div className="text-white text-center relative z-10">
+                  <motion.div 
+                    className="text-5xl mb-3"
+                    whileHover={{ scale: 1.2, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     {index === 0 && "🏠"} {/* AI Property System */}
                     {index === 1 && "📊"} {/* Data Analysis */}
                     {index === 2 && "🎮"} {/* Game */}
-                  </div>
-                  <p className="text-lg font-medium">{project.title}</p>
+                  </motion.div>
+                  <p className="text-lg font-semibold opacity-90">{project.title}</p>
+                </div>
+                
+                {/* Floating particles effect */}
+                <div className="absolute inset-0">
+                  <div className="absolute top-4 left-4 w-2 h-2 bg-white/30 rounded-full animate-pulse"></div>
+                  <div className="absolute top-8 right-8 w-1 h-1 bg-white/40 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+                  <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-white/20 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
                 </div>
               </div>
               
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                <p className="text-gray-600 mb-4 flex-grow">{project.description}</p>
+              <div className="p-8 flex flex-col flex-grow">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 mb-6 flex-grow leading-relaxed">{project.description}</p>
                 
-                <div className="mt-auto">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech) => (
-                      <span
+                <div className="mt-auto space-y-6">
+                  <div className="flex flex-wrap gap-3">
+                    {project.technologies.map((tech, techIndex) => (
+                      <motion.span
                         key={tech}
-                        className="bg-primary-100 text-primary-800 px-2 py-1 rounded text-sm font-medium"
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: (index * 0.1) + (techIndex * 0.05) }}
+                        viewport={{ once: true }}
+                        className="bg-gradient-to-r from-primary-50 to-primary-100 text-primary-800 px-4 py-2 rounded-2xl text-sm font-semibold border border-primary-200 hover:border-primary-300 transition-all duration-300 hover:shadow-md hover:scale-105"
                       >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                   
-                  <div className="flex gap-3">
+                  <div className="flex gap-4">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                      className="flex items-center gap-3 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-primary-600 transition-all duration-300 rounded-2xl font-medium hover:scale-105 hover:shadow-md"
                     >
                       <Github size={20} />
                       Code
@@ -102,7 +128,7 @@ const Projects = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                      className="flex items-center gap-3 px-6 py-3 bg-primary-100 hover:bg-primary-200 text-primary-700 hover:text-primary-800 transition-all duration-300 rounded-2xl font-medium hover:scale-105 hover:shadow-md"
                     >
                       <ExternalLink size={20} />
                       Live Demo

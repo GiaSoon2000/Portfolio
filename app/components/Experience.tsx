@@ -57,18 +57,27 @@ const Experience = () => {
   ]
 
   return (
-    <section id="experience" className="section-padding bg-gray-50">
+    <section id="experience" className="section-padding bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full blur-3xl float-animation"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl float-animation" style={{animationDelay: '5s'}}></div>
+      </div>
+
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Experience</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            My professional journey and academic projects that have shaped my development skills.
+          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            Professional <span className="gradient-text">Experience</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            My professional journey and academic projects that have shaped my development skills. 
+            From software development to teaching robotics, each experience has contributed to my growth as a developer.
           </p>
         </motion.div>
 
@@ -76,42 +85,82 @@ const Experience = () => {
           {experiences.map((experience, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="card-modern p-8 group hover:scale-[1.02]"
             >
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{experience.title}</h3>
-                  <p className="text-lg text-primary-600 font-medium">{experience.company}</p>
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-3 h-3 bg-gradient-to-r from-primary-500 to-primary-700 rounded-full"></div>
+                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors duration-300">
+                      {experience.title}
+                    </h3>
+                  </div>
+                  <p className="text-lg text-primary-600 font-semibold mb-2">{experience.company}</p>
                 </div>
-                <span className="text-gray-600 mt-2 lg:mt-0">{experience.period}</span>
+                <div className="lg:ml-6 lg:text-right">
+                  <span className="inline-block bg-gradient-to-r from-primary-100 to-primary-200 text-primary-800 px-4 py-2 rounded-2xl text-sm font-semibold">
+                    {experience.period}
+                  </span>
+                </div>
               </div>
               
-              <ul className="space-y-2 mb-6">
-                {experience.description.map((item, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <span className="text-primary-600 mr-2">•</span>
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mb-6">
+                <ul className="space-y-3">
+                  {experience.description.map((item, idx) => (
+                    <motion.li 
+                      key={idx} 
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: (index * 0.1) + (idx * 0.05) }}
+                      viewport={{ once: true }}
+                      className="flex items-start group/item"
+                    >
+                      <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-r from-primary-500 to-primary-700 rounded-full mt-2 mr-3 group-hover/item:scale-125 transition-transform duration-300"></div>
+                      <span className="text-gray-700 leading-relaxed">{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
               
-              <div className="flex flex-wrap gap-2">
-                {experience.technologies.map((tech) => (
-                  <span
+              <div className="flex flex-wrap gap-3">
+                {experience.technologies.map((tech, techIndex) => (
+                  <motion.span
                     key={tech}
-                    className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium"
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: (index * 0.1) + (techIndex * 0.05) }}
+                    viewport={{ once: true }}
+                    className="bg-gradient-to-r from-primary-50 to-primary-100 text-primary-800 px-4 py-2 rounded-2xl text-sm font-semibold border border-primary-200 hover:border-primary-300 transition-all duration-300 hover:shadow-md hover:scale-105"
                   >
                     {tech}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Career Timeline Indicator */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center"
+        >
+          <div className="card-modern p-8 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Career Journey</h3>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              From retail sales to software development, my career path reflects a journey of continuous learning and adaptation. 
+              Each role has equipped me with valuable skills that contribute to my success as a software engineer, 
+              from customer service and problem-solving to technical implementation and team collaboration.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
