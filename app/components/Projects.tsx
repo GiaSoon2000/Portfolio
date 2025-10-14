@@ -16,12 +16,12 @@ const Projects = () => {
       featured: true
     },
     {
-      title: 'Analysis of Student Mental Health',
-      description: 'Analyzed student mental health data from Kaggle by preparing, cleaning, and visualizing the dataset. Visualized trends and patterns using Matplotlib and Seaborn.',
+      title: 'MLOps Demo – End-to-End Machine Learning Deployment Pipeline',
+      description: 'Built and deployed a complete MLOps pipeline for a regression model using Flask, Docker, GitHub Actions, and Render. Features include automated retraining, CI/CD testing, and dashboard-based model monitoring.',
       image: '/project2.jpg',
-      technologies: ['Python', 'Data Analysis', 'Matplotlib', 'Seaborn', 'Pandas'],
-      github: 'https://github.com/GiaSoon2000/Python-Project',
-      live: 'https://github.com/GiaSoon2000/Python-Project/blob/main/analysis-of-student-mental-health.ipynb',
+      technologies: ['Flask', 'Docker', 'GitHub Actions', 'Render', 'CI/CD'],
+      github: 'https://github.com/GiaSoon2000/mlops-demo',
+      live: 'https://mlops-demo-im8g.onrender.com',
       featured: true
     },
     {
@@ -32,6 +32,15 @@ const Projects = () => {
       github: 'https://github.com/GiaSoon2000/Timber-Man_Java2_Project',
       live: 'https://drive.google.com/file/d/14m5SLMobEh8MG4r8gN43-_Lw38EqWRXK/view?usp=sharing',
       featured: false
+    },
+    {
+      title: 'Analysis of Student Mental Health',
+      description: 'Analyzed student mental health data from Kaggle by preparing, cleaning, and visualizing the dataset. Visualized trends and patterns using Matplotlib and Seaborn.',
+      image: '/project4.jpg',
+      technologies: ['Python', 'Data Analysis', 'Matplotlib', 'Seaborn', 'Pandas'],
+      github: 'https://github.com/GiaSoon2000/Python-Project',
+      live: 'https://github.com/GiaSoon2000/Python-Project/blob/main/analysis-of-student-mental-health.ipynb',
+      featured: true
     }
   ]
 
@@ -78,8 +87,9 @@ const Projects = () => {
                     transition={{ duration: 0.3 }}
                   >
                     {index === 0 && "🏠"} {/* AI Property System */}
-                    {index === 1 && "📊"} {/* Data Analysis */}
-                    {index === 2 && "🎮"} {/* Game */}
+                    {index === 1 && "🤖"} {/* MLOps Demo */}
+                    {index === 2 && "📊"} {/* Data Analysis */}
+                    {index === 3 && "🎮"} {/* Game */}
                   </motion.div>
                   <p className="text-lg font-semibold opacity-90">{project.title}</p>
                 </div>
