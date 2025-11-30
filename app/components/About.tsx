@@ -1,6 +1,7 @@
-'use client'
+"use client"
 
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, Download, ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -17,38 +18,103 @@ const PhotoCarousel = () => {
       src: '/photo2.jpeg',
       alt: 'Chang Gia Soon - Outdoor Photo'
     }
+    ,
+    {
+      src: '/photo3.jpeg',
+      alt: 'Chang Gia Soon - Casual Photo'
+    }
   ]
 
-  const nextPhoto = () => {
-    setCurrentPhoto((prev) => (prev + 1) % photos.length)
-  }
+  const timerRef = React.useRef<number | null>(null)
 
-  const prevPhoto = () => {
-    setCurrentPhoto((prev) => (prev - 1 + photos.length) % photos.length)
-  }
+  const nextPhoto = React.useCallback(() => {
+    setCurrentPhoto((prev) => {
+      const next = (prev + 1) % photos.length
+      return next
+    })
+  }, [photos])
 
-  // Auto-advance every 5 seconds
+  const prevPhoto = React.useCallback(() => {
+    setCurrentPhoto((prev) => {
+      const next = (prev - 1 + photos.length) % photos.length
+      return next
+    })
+  }, [photos])
+
+  // Auto-advance every 5 seconds - uses timerRef so we can reset on manual navigation
   useEffect(() => {
-    const timer = setInterval(nextPhoto, 5000)
-    return () => clearInterval(timer)
-  }, [])
+    const start = () => {
+      if (timerRef.current) window.clearInterval(timerRef.current)
+      timerRef.current = window.setInterval(() => {
+        nextPhoto()
+      }, 5000)
+    }
+
+    start()
+
+    return () => {
+      if (timerRef.current) window.clearInterval(timerRef.current)
+      timerRef.current = null
+    }
+  }, [nextPhoto])
+
+  // Reset timer when user manually navigates (so auto timing restarts)
+  const handleNext = () => {
+    nextPhoto()
+    if (timerRef.current) {
+      window.clearInterval(timerRef.current)
+      timerRef.current = window.setInterval(nextPhoto, 5000)
+    }
+  }
+
+  const handlePrev = () => {
+    prevPhoto()
+    if (timerRef.current) {
+      window.clearInterval(timerRef.current)
+      timerRef.current = window.setInterval(nextPhoto, 5000)
+    }
+  }
+
+  // Preload images so auto-advance doesn't hit a race with loading
+  useEffect(() => {
+    const imgs: HTMLImageElement[] = []
+    photos.forEach((p) => {
+      const img = document.createElement('img') as HTMLImageElement
+      img.src = p.src
+      imgs.push(img)
+    })
+
+    return () => {
+      imgs.forEach((i) => {
+        i.onload = null
+        i.onerror = null
+      })
+    }
+  }, [photos])
 
   return (
     <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl relative group">
-      {/* Main Photo */}
-      <motion.img
+      {/* Main Photo (Next.js Image for optimization) */}
+      <motion.div
         key={currentPhoto}
-        src={photos[currentPhoto].src}
-        alt={photos[currentPhoto].alt}
-        className="w-full h-full object-cover"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-      />
+        className="w-full h-full relative"
+      >
+        <Image
+          src={photos[currentPhoto].src}
+          alt={photos[currentPhoto].alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+          priority={false}
+        />
+      </motion.div>
       
       {/* Navigation Arrows */}
       <button
-        onClick={prevPhoto}
+        onClick={handlePrev}
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         aria-label="Previous photo"
       >
@@ -56,7 +122,7 @@ const PhotoCarousel = () => {
       </button>
       
       <button
-        onClick={nextPhoto}
+        onClick={handleNext}
         className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         aria-label="Next photo"
       >
