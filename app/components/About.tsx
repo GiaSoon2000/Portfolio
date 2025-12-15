@@ -176,7 +176,7 @@ const About = () => {
               </h1>
               
               <h2 className="text-2xl lg:text-3xl text-gray-600 font-medium">
-                Bachelor of Software Engineering Student
+                Entry-level Software Engineer — Full-stack & AI-enabled Applications
               </h2>
             </motion.div>
             
@@ -187,11 +187,15 @@ const About = () => {
               className="card-modern p-8"
             >
               <p className="text-lg text-gray-700 leading-relaxed text-justify">
-                I'm a passionate Software Engineering student at Southern University College (2022-2025) 
-                with a strong foundation in frontend development and AI integration. Currently completing 
-                my internship at ER Group Technology, I'm excited to contribute to innovative projects 
-                that make a difference in people's lives. I'm Malaysian and willing to relocate for 
-                exciting opportunities in software engineering.
+                I build full-stack web applications using React, Next.js, Flask, and MySQL, delivering projects from concept to deployment.  
+              </p>
+
+              <p className="text-lg text-gray-700 leading-relaxed text-justify mt-4">
+                My projects include AI-powered decision platforms and energy optimization tools, deployed on Vercel and Render for real-world use.  
+              </p>
+
+              <p className="text-lg text-gray-700 leading-relaxed text-justify mt-4">
+                I thrive on solving practical problems, learning new technologies quickly, and writing clean, maintainable code that makes an impact.  
               </p>
             </motion.div>
             

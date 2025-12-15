@@ -3,29 +3,38 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-const Skills = () => {
+const Skills = () => { 
   const skillCategories = [
     {
       title: 'Programming Languages',
-      skills: ['Python', 'Java', 'JavaScript', 'SQL']
+      skills: ['Python', 'JavaScript', 'Java', 'SQL']
     },
     {
       title: 'Frontend Development',
-      skills: ['React', 'Angular', 'JavaFX', 'HTML5', 'CSS3', 'TailwindCSS']
+      skills: ['React', 'Next.js', 'Angular', 'TailwindCSS', 'HTML5', 'CSS3', 'JavaFX']
     },
     {
       title: 'Backend Development',
-      skills: ['Flask', 'REST APIs', 'Node.js (basic)']
+      skills: ['Flask', 'FastAPI', 'REST APIs', 'Node.js (basic)']
     },
     {
-      title: 'Databases',
-      skills: ['MySQL', 'Azure SQL', 'XAMPP']
+      title: 'Databases & Data',
+      skills: ['MySQL', 'Azure SQL', 'XAMPP', 'Time-Series Data Processing']
     },
     {
-      title: 'Tools & Technologies',
-      skills: ['Git/GitHub', 'Postman', 'Figma', 'Azure']
+      title: 'DevOps & Cloud',
+      skills: ['Docker', 'Vercel', 'Render', 'GitHub Actions', 'CI/CD', 'Azure']
+    },
+    {
+      title: 'AI / Optimization',
+      skills: ['Scikit-learn', 'Optimization Logic', 'Data Preprocessing', 'Model Deployment (basic)']
+    },
+    {
+      title: 'Tools & Collaboration',
+      skills: ['Git/GitHub', 'Postman', 'Figma', 'Jira']
     }
-  ]
+  ];
+
 
   return (
     <section id="skills" className="section-padding bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">

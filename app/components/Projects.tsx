@@ -16,9 +16,18 @@ const Projects = () => {
       featured: true
     },
     {
+      title: 'Smart EV Charging Optimization Platform',
+      description: 'Developed a full-stack energy optimization platform to schedule EV charging based on electricity pricing and departure constraints. Features FastAPI backend, Next.js frontend with real-time visualization, and cloud deployment on Render & Vercel.',
+      image: '/project2.jpg',
+      technologies: ['Next.js', 'FastAPI', 'Python', 'Time-Series Logic', 'Vercel', 'Render'],
+      github: 'https://github.com/GiaSoon2000/Smart-EV-Charging', 
+      live: 'https://smart-ev-charging.vercel.app/',
+      featured: true
+    },
+    {
       title: 'MLOps Demo – End-to-End Machine Learning Deployment Pipeline',
       description: 'Built and deployed a complete MLOps pipeline for a regression model using Flask, Docker, GitHub Actions, and Render. Features include automated retraining, CI/CD testing, and dashboard-based model monitoring.',
-      image: '/project2.jpg',
+      image: '/project3.jpg',
       technologies: ['Flask', 'Docker', 'GitHub Actions', 'Render', 'CI/CD'],
       github: 'https://github.com/GiaSoon2000/mlops-demo',
       live: 'https://mlops-demo-im8g.onrender.com',
@@ -27,7 +36,7 @@ const Projects = () => {
     {
       title: 'Timber Man Game',
       description: 'Developed a classic arcade-style tree-chopping game using JavaFX, integrating MySQL via XAMPP for data management. Implemented high-score tracking with JDBC connection.',
-      image: '/project3.jpg',
+      image: '/project4.jpg',
       technologies: ['Java', 'JavaFX', 'MySQL', 'XAMPP', 'JDBC'],
       github: 'https://github.com/GiaSoon2000/Timber-Man_Java2_Project',
       live: 'https://drive.google.com/file/d/14m5SLMobEh8MG4r8gN43-_Lw38EqWRXK/view?usp=sharing',
@@ -36,7 +45,7 @@ const Projects = () => {
     {
       title: 'Analysis of Student Mental Health',
       description: 'Analyzed student mental health data from Kaggle by preparing, cleaning, and visualizing the dataset. Visualized trends and patterns using Matplotlib and Seaborn.',
-      image: '/project4.jpg',
+      image: '/project5jpg',
       technologies: ['Python', 'Data Analysis', 'Matplotlib', 'Seaborn', 'Pandas'],
       github: 'https://github.com/GiaSoon2000/Python-Project',
       live: 'https://github.com/GiaSoon2000/Python-Project/blob/main/analysis-of-student-mental-health.ipynb',
@@ -87,9 +96,10 @@ const Projects = () => {
                     transition={{ duration: 0.3 }}
                   >
                     {index === 0 && "🏠"} {/* AI Property System */}
-                    {index === 1 && "🤖"} {/* MLOps Demo */}
-                    {index === 2 && "📊"} {/* Data Analysis */}
-                    {index === 3 && "🎮"} {/* Game */}
+                    {index === 1 && "⚡"} {/* Smart EV Charging */}
+                    {index === 2 && "🤖"} {/* MLOps Demo */}
+                    {index === 3 && "📊"} {/* Data Analysis */}
+                    {index === 4 && "🎮"} {/* Game */}
                   </motion.div>
                   <p className="text-lg font-semibold opacity-90">{project.title}</p>
                 </div>
